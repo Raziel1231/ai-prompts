@@ -1,28 +1,30 @@
 import "@styles/globals.css";
 
-export const metadata = {
-    title: "AiPrompts",
-    description: "Share AI prompts"
-}
+import Nav from "@components/Nav";
+import Provider from "@components/Provider";
 
-function RootLayout({
-    children,
-  }: {
-    children: React.ReactNode;
-  }) {
-    return (
-        <html lang="en">
-            <body>
-                <div className="main">
-                    <div className="gradient"></div>
-                </div>
-                
-                <main className="app">
-                    {children}
-                </main>
-            </body>
-        </html>
-    )
+export const metadata = {
+  title: "AIPrompts",
+  description: "Share AI prompts",
+};
+
+function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <Provider>
+        <body>
+          <div className="main">
+            <div className="gradient"></div>
+          </div>
+
+          <main className="app">
+            <Nav />
+            {children}
+          </main>
+        </body>
+      </Provider>
+    </html>
+  );
 }
 
 export default RootLayout;
